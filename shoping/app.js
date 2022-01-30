@@ -1,4 +1,4 @@
-//seleccion de todos los componentes
+
 const carrito = document.querySelector("#carrito");
 const template = document.querySelector("#template");
 const fragment = document.createDocumentFragment();
