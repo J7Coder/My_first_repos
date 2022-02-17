@@ -24,49 +24,49 @@ const showSuccessMessage=()=>{
     success.textContent="Datos inviados correctamente!!";
 }
 
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    const errores=[];
-    if(!myMailReg.test(mail.value.trim())){
-        mail.classList.add("is-invalid");
+function validarForm(){
+       const errores=[];
+        if(!myMailReg.test(mail.value.trim())){
+            mail.classList.add("is-invalid");
 
-         errores.push({
-            campo:errorMail,
-            error: "Email no es valido"
-        })
-     
+            errores.push({
+                campo:errorMail,
+                error: "Email no es valido"
+            })
         
-    }else{
-        mail.classList.remove("is-invalid");
-        mail.classList.add("is-valid");
-        errorMail.classList.add("d-none");
-       
+            
+        }else{
+            mail.classList.remove("is-invalid");
+            mail.classList.add("is-valid");
+            errorMail.classList.add("d-none");
         
-    }
-  
-    if(!myPassReg2.test(password.value.trim())){
-        password.classList.add("is-invalid");
-        errores.push({
-            campo:errorPass,
-            error: "Contraseña no es valido"
-        })
-        
-        
-    }else{
-        password.classList.remove("is-invalid")
-        password.classList.add("is-valid");
-        errorPass.classList.add("d-none");
-       
-       
-    }
-
-    if(errores.length !==0){
-       showError(errores);
-       return false;
-       
-    }
+            
+        }
     
-    showSuccessMessage();
-    return true;
-  
-})
+        if(!myPassReg2.test(password.value.trim())){
+            password.classList.add("is-invalid");
+            errores.push({
+                campo:errorPass,
+                error: "Contraseña no es valido"
+            })
+            
+            
+        }else{
+            password.classList.remove("is-invalid")
+            password.classList.add("is-valid");
+            errorPass.classList.add("d-none");
+        
+        
+        }
+
+        if(errores.length !==0){
+        showError(errores);
+        return false;
+        
+        }
+        
+        showSuccessMessage();
+        return true;
+    
+   
+}
